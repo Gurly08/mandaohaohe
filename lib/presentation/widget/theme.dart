@@ -85,3 +85,24 @@ TextStyle mediumblueTextStyle = GoogleFonts.poppins(
   color: blueColor,
   fontWeight: FontWeight.normal,
 );
+
+//------------------------------------------------------
+TextStyle bolddeepblueTextStyle = GoogleFonts.poppins(
+  color: deepblueColor,
+  fontWeight: FontWeight.bold,
+);
+
+TextStyle semibolddeepblueextStyle = GoogleFonts.poppins(
+  color: deepblueColor,
+  fontWeight: FontWeight.w600,
+);
+
+TextStyle mediumdeepblueTextStyle = GoogleFonts.poppins(
+  color: deepblueColor,
+  fontWeight: FontWeight.w500,
+);
+
+TextStyle regulardeepblueTextStyle = GoogleFonts.poppins(
+  color: deepblueColor,
+  fontWeight: FontWeight.normal,
+);
