@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mandaohe/presentation/pages/jasalabuh/jasalabuh.dart';
 import 'package:mandaohe/presentation/widget/theme.dart';
 
 class ListServiceWidget extends StatelessWidget {
@@ -11,7 +12,14 @@ class ListServiceWidget extends StatelessWidget {
       physics: const NeverScrollableScrollPhysics(),
       children: [
         InkWell(
-          onTap: () {},
+          onTap: () {
+            Navigator.push(
+              context, 
+              MaterialPageRoute(
+                builder: (context) => const JasaLabuh(),
+              ),
+            );
+          },
           child: Card(
             color: Colors.indigo[900],
             child: Padding(

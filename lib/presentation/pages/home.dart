@@ -6,8 +6,15 @@ import 'package:mandaohe/presentation/widget/data_kapal_table.dart';
 import 'package:mandaohe/presentation/widget/list_service_widget.dart';
 import 'package:mandaohe/presentation/widget/theme.dart';
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
   const Home({super.key});
+
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  int selectedIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -106,59 +113,64 @@ class Home extends StatelessWidget {
         ),
         child: SafeArea(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 8),
-            child: GNav(
-                activeColor: Colors.white,
-                iconSize: 24,
-                backgroundColor: deepblueColor,
-                color: Colors.grey,
-                tabBackgroundColor: Colors.amber[700]!,
-                padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 20),
-                textStyle: semiboldwhitetext,
-                tabs: const [
-                  GButton(
-                    icon: Icons.home,
-                    text: 'Home',
-                  ),
-                  GButton(
-                    icon: Icons.history_rounded,
-                    text: 'History',
-                  ),
-                  GButton(
-                    icon: Icons.person,
-                    text: 'Profil',
-                  ),
-                ],
-                onTabChange: (int index) {
-                  switch (index) {
-                    case 0:
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const Home(),
-                        ),
-                      );
-                      break;
+            padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 9),
+                  child: GNav(
+              activeColor: Colors.white,
+              iconSize: 24,
+              backgroundColor: deepblueColor,
+              color: Colors.grey,
+              tabBackgroundColor: Colors.amber[700]!,
+              padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 20),
+              textStyle: semiboldwhitetext,
+              tabs: const [
+                GButton(
+                  icon: Icons.home,
+                  text: 'Home',
+                ),
+                GButton(
+                  icon: Icons.history_rounded,
+                  text: 'History',
+                ),
+                GButton(
+                  icon: Icons.person,
+                  text: 'Profil',
+                ),
+              ],
+              selectedIndex: selectedIndex,
+              onTabChange: (int index) {
+                setState(() {
+                  selectedIndex = index;
+                });
+                switch (index) {
+                  case 0:
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const Home(),
+                      ),
+                    );
+                    break;
 
-                    case 1:
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const History(),
-                        ),
-                      );
-                      break;
+                  case 1:
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const History(),
+                      ),
+                    );
+                    break;
 
-                    case 2:
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const Profil(),
-                        ),
-                      );
-                      break;
-                  }
-                }),
+                  case 2:
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const Profil(),
+                      ),
+                    );
+                    break;
+                }
+              },
+            ),
           ),
         ),
       ),
